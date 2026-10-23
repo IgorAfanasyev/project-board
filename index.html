@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>לוח פרויקטים</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">📋 לוח פרויקטים</div>
+    <div class="side-title">הלוחות שלי</div>
+    <ul id="boardList"></ul>
+    <button class="btn ghost full" id="addBoardBtn">+ לוח חדש</button>
+    <div class="side-bottom">
+      <button class="btn ghost full" id="exportBtn">⬇ ייצוא נתונים</button>
+      <label class="btn ghost full">⬆ ייבוא נתונים<input type="file" id="importInput" accept=".json" hidden></label>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="btn icon" id="menuBtn" aria-label="תפריט">☰</button>
+      <h1 id="boardTitle" contenteditable="true" spellcheck="false"></h1>
+      <div class="top-actions">
+        <input type="search" id="searchInput" placeholder="🔍 חיפוש...">
+        <select id="personFilter"><option value="">כל האנשים</option></select>
+        <div class="tabs">
+          <button class="tab active" data-view="table">טבלה</button>
+          <button class="tab" data-view="kanban">קנבן</button>
+          <button class="tab" data-view="dashboard">סיכום</button>
+        </div>
+        <button class="btn" id="peopleBtn">👥 אנשים</button>
+        <button class="btn danger-ghost" id="deleteBoardBtn" title="מחק לוח">🗑</button>
+      </div>
+    </header>
+    <section id="view"></section>
+  </main>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><h2 id="modalTitle"></h2><button class="btn icon" id="modalClose">✕</button></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="popover" id="popover" hidden></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
